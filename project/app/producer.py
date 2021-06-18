@@ -8,12 +8,12 @@ def pushmsg(feedback,feedbackid):
 
     }
     return thisdict
-msg=pushmsg("nice idea!",1)
+#msg=pushmsg("nice idea!",1)
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
 channel = connection.channel()
 channel.queue_declare(queue='feedbacks')
 channel.basic_publish(exchange='', routing_key='feedbacks', body=json.dumps(msg))
-print(msg)
+#print(msg)
 connection.close()
 
     

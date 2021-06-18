@@ -11,10 +11,10 @@ def main():
     def callback(ch, method, properties, body):
         a = json.loads(body)
         x = a["feedbackid"]
-        print("received")
-        mydb= pymysql.Connect(host='127.0.0.1', port=3306, user='root', passwd='root', db='testdb')
-        #tag=requests.get("")
-        tag="positive"
+        #print("received")
+        mydb= pymysql.Connect(host='127.0.0.1', port=3306, user='root', passwd='EnterYourPassword', db='DatabaseName')
+        #tag=requests.get("ModelAPI call")
+        #tag="positive"
         mycursor = mydb.cursor()
         sql = "UPDATE feedback SET tag = %s WHERE id = %s"
         val=(tag,x)
